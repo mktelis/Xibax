@@ -3,21 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>XIBAX 90mg | Etoricoxib</title>
+    <title>Otipax | Medical Information</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #0a56a3;
-            --secondary-color: #05366a;
-            --accent-color: #6db3f2;
-            --light-color: #f5f9ff;
-            --dark-color: #002647;
+            --primary-color: #1a73e8;
+            --secondary-color: #ff6b00;
+            --light-blue: #e1f5fe;
             --text-color: #333;
-            --white-color: #fff;
-            --gold-color: #d4af37;
-            --green-color: #1d4430;
+            --background-light: #f8f9fa;
+            --box-shadow: 0 4px 12px rgba(0,0,0,0.1);
             --transition: all 0.3s ease;
         }
 
@@ -30,619 +27,532 @@
         body {
             font-family: 'Poppins', sans-serif;
             color: var(--text-color);
-            background-color: var(--light-color);
             line-height: 1.6;
-            transition: var(--transition);
+            background-color: var(--background-light);
+            overflow-x: hidden;
         }
 
-        body.rtl {
-            font-family: 'Tajawal', sans-serif;
+        body.arabic {
+            font-family: 'Cairo', sans-serif;
             direction: rtl;
             text-align: right;
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--primary-color), #2c5cc5);
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+            position: relative;
+            box-shadow: var(--box-shadow);
+        }
+
+           .header-content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px; /* Adjust the gap as needed */
+    }
+
+        .product-title {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-subtitle {
+            font-weight: 300;
+            margin-bottom: 1rem;
+        }
+
+        .language-switch {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            z-index: 100;
+        }
+
+        body.arabic .language-switch {
+            right: auto;
+            left: 20px;
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 120px;
+            height: 34px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            transition: var(--transition);
+            border-radius: 34px;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+        
+            .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            border-radius: 50%;
+            transition: var(--transition);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        input:checked + .slider:before {
+            transform: translateX(86px);
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        header {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: var(--white-color);
-            padding: 1.5rem 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo-container {
-            display: flex;
-            align-items: center;
-        }
-
-        .logo {
-            max-height: 60px;
-            transition: var(--transition);
-        }
-
-        .logo:hover {
-            transform: scale(1.05);
-        }
-
-        .lang-switch {
-            background-color: var(--white-color);
-            color: var(--primary-color);
-            border: none;
-            padding: 8px 16px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            transition: var(--transition);
-        }
-
-        .lang-switch:hover {
-            background-color: var(--accent-color);
-            color: var(--white-color);
-        }
-
-        main {
-            margin-top: 120px;
-            min-height: 100vh;
-            padding-bottom: 4rem;
-        }
-
-        .hero {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 2rem 0;
-            text-align: center;
-            background-color: var(--white-color);
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            margin-bottom: 2rem;
+            padding: 2rem;
         }
 
         .product-image {
             max-width: 300px;
-            margin-bottom: 1.5rem;
+            margin: 0 auto 2rem;
+            display: block;
             border-radius: 10px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-            transition: var(--transition);
+            box-shadow: var(--box-shadow);
         }
 
-        .product-image:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-        }
-
-        .product-title {
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-            font-size: 2.2rem;
-        }
-
-        .product-subtitle {
-            color: var(--dark-color);
-            font-weight: 500;
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
-        }
-
-        .mk-logo {
-            max-width: 150px;
-            margin: 1rem 0;
-            border-radius: 50%;
-            transition: var(--transition);
-        }
-
-        .mk-logo:hover {
-            transform: rotate(5deg) scale(1.05);
-        }
-
-        .card {
-            background-color: var(--white-color);
+        .content-section {
+            background-color: white;
             border-radius: 10px;
             padding: 2rem;
             margin-bottom: 2rem;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            box-shadow: var(--box-shadow);
             transition: var(--transition);
         }
 
-        .card:hover {
+        .content-section:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
         }
 
-        .card-title {
+        .section-title {
             color: var(--primary-color);
             margin-bottom: 1rem;
             font-size: 1.5rem;
-            border-bottom: 2px solid var(--accent-color);
             padding-bottom: 0.5rem;
-            position: relative;
+            border-bottom: 2px solid var(--light-blue);
         }
 
-        .card-title::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 50px;
-            height: 2px;
-            background-color: var(--primary-color);
+        ul, ol {
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
         }
 
-        body.rtl .card-title::after {
-            left: auto;
-            right: 0;
+        body.arabic ul, body.arabic ol {
+            padding-left: 0;
+            padding-right: 1.5rem;
         }
 
-        .card-content {
-            font-size: 1rem;
-        }
-
-        ul {
-            list-style-type: none;
-            margin-left: 1.5rem;
-        }
-
-        body.rtl ul {
-            margin-left: 0;
-            margin-right: 1.5rem;
-        }
-
-        ul li {
-            margin-bottom: 0.75rem;
-            position: relative;
-        }
-
-        ul li::before {
-            content: '•';
-            color: var(--accent-color);
-            font-weight: bold;
-            display: inline-block;
-            width: 1em;
-            margin-left: -1em;
-            font-size: 1.2rem;
-        }
-
-        body.rtl ul li::before {
-            margin-left: 0;
-            margin-right: -1em;
-        }
-
-        .dosage-item {
-            background-color: rgba(109, 179, 242, 0.1);
-            border-left: 3px solid var(--accent-color);
-            padding: 0.75rem;
-            margin: 0.5rem 0;
-            border-radius: 0 5px 5px 0;
-            transition: var(--transition);
-        }
-
-        body.rtl .dosage-item {
-            border-left: none;
-            border-right: 3px solid var(--accent-color);
-            border-radius: 5px 0 0 5px;
-        }
-
-        .dosage-item:hover {
-            background-color: rgba(109, 179, 242, 0.2);
-            transform: translateX(5px);
-        }
-
-        body.rtl .dosage-item:hover {
-            transform: translateX(-5px);
-        }
-
-        .warning {
-            background-color: rgba(255, 99, 71, 0.1);
-            border-left: 3px solid tomato;
-            padding: 1rem;
+        .highlight {
+            background-color: var(--light-blue);
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
             margin: 1rem 0;
-            border-radius: 0 5px 5px 0;
+            border-left: 4px solid var(--primary-color);
         }
 
-        body.rtl .warning {
+        body.arabic .highlight {
             border-left: none;
-            border-right: 3px solid tomato;
-            border-radius: 5px 0 0 5px;
+            border-right: 4px solid var(--primary-color);
         }
 
-        .highlighted {
-            color: var(--primary-color);
-            font-weight: 500;
+        .dropper-image {
+            max-width: 200px;
+            margin: 1rem auto;
+            display: block;
         }
 
-        footer {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: var(--white-color);
-            padding: 2rem 0;
+        .footer {
+            background: linear-gradient(135deg, var(--primary-color), #2c5cc5);
+            color: white;
             text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+            box-shadow: 0 -4px 12px rgba(0,0,0,0.1);
         }
 
-        .footer-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .copyright {
+        .author-credit {
             margin-top: 1rem;
-            font-size: 1rem;
-            position: relative;
+            font-style: italic;
             display: inline-block;
+            padding: 0.5rem 1rem;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50px;
         }
 
-        .copyright::before, .copyright::after {
-            content: "★";
-            color: var(--gold-color);
-            margin: 0 10px;
+        .hidden {
+            display: none;
         }
 
-        .copyright-name {
-            color: var(--gold-color);
-            font-weight: 600;
-            margin: 0 5px;
-            position: relative;
-            display: inline-block;
-        }
-
-        .copyright-name::after {
-            content: '';
+        .water-animation {
             position: absolute;
-            bottom: -3px;
+            top: 0;
             left: 0;
             width: 100%;
-            height: 2px;
-            background-color: var(--gold-color);
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%232c5cc5" fill-opacity="0.1" d="M0,192L48,176C96,160,192,128,288,128C384,128,480,160,576,165.3C672,171,768,149,864,144C960,139,1056,149,1152,144C1248,139,1344,117,1392,106.7L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background-repeat: no-repeat;
+            background-position: bottom;
+            z-index: -1;
         }
 
-        .copyright:hover .copyright-name::after {
-            transform: scaleX(1);
-        }
-
-        .back-to-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background-color: var(--primary-color);
-            color: var(--white-color);
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            opacity: 0;
-            transition: var(--transition);
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-            z-index: 999;
-        }
-
-        body.rtl .back-to-top {
-            right: auto;
-            left: 30px;
-        }
-
-        .back-to-top.visible {
-            opacity: 1;
-        }
-
-        .back-to-top:hover {
-            background-color: var(--secondary-color);
-            transform: translateY(-5px);
-        }
-
-        .back-to-top svg {
-            width: 20px;
-            height: 20px;
-        }
-
+        /* Media Queries */
         @media (max-width: 768px) {
             .product-title {
                 font-size: 1.8rem;
             }
             
-            .product-subtitle {
-                font-size: 1rem;
+            .container {
+                padding: 1rem;
             }
             
-            .card {
+            .content-section {
                 padding: 1.5rem;
             }
-            
-            .product-image {
-                max-width: 230px;
-            }
         }
-
+        
         @media (max-width: 480px) {
-            .header-content {
-                flex-direction: column;
-                gap: 1rem;
+            .header {
+                padding: 1rem;
             }
             
-            main {
-                margin-top: 150px;
+            .language-switch {
+                position: relative;
+                top: 0;
+                right: 0;
+                margin: 1rem auto;
+                display: block;
+            }
+            
+            body.arabic .language-switch {
+                left: 0;
             }
             
             .product-title {
                 font-size: 1.5rem;
+                margin-top: 1rem;
             }
             
-            .product-image {
-                max-width: 180px;
-            }
-            
-            .card-title {
-                font-size: 1.2rem;
+            .content-section {
+                padding: 1rem;
             }
         }
-
-        /* Loading animation */
-        .loading {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 70vh;
+            @keyframes logoAnimation {
+            0% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.1) rotate(10deg); }
+            100% { transform: scale(1) rotate(0deg); }
+        }
+           .logo {
+            max-width: 150px;
+            margin-bottom: 1rem;
+            animation: logoAnimation 3s infinite;
         }
 
-        .loading-spinner {
-            width: 50px;
-            height: 50px;
-            border: 5px solid var(--accent-color);
-            border-top: 5px solid var(--primary-color);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
+            body.arabic .logo {
+            margin-left: 1rem;
+            margin-right: 0;
         }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            .language-label {
+            position: absolute;
+            font-size: 0.9rem;
+            color: white;
+            z-index: 10;
+            transition: var(--transition);
+        }
+        
+        .en-label {
+            left: 10px;
+        }
+        
+        .ar-label {
+            right: 10px;
+        }
+        
+        input:checked + .slider .en-label {
+            opacity: 0;
+        }
+        
+        input:checked + .slider .ar-label {
+            opacity: 1;
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div class="header-content">
-                <div class="logo-container">
-                    <img src="Logo.png" alt="Logo.png" class="logo" id="Logo">
+<div class="header">
+    <div class="language-switch">
+        <label class="switch">
+            <input type="checkbox" id="languageToggle">
+            <span class="slider">
+                <span class="language-label en-label">EN</span>
+                <span class="language-label ar-label">عربي</span>
+            </span>
+        </label>
+    </div>
+    <div class="header-content">
+        <img src="000 logo with ideogram - then upscaled with Recraft- then transparent with Recraft.png" alt="Logo" class="logo">
+        <video width="300" height="200" controls autoplay muted>
+            <source src="000 YouCut_20250227_004324266.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <div>
+        <h1 class="product-title" id="title-en">XIBAX 90mg</h1>
+        <h1 class="product-title hidden" id="title-ar">زيباكس 90 مجم</h1>
+        <p class="product-subtitle" id="subtitle-en">Film-Coated Tablets (etoricoxib)</p>
+        <p class="product-subtitle hidden" id="subtitle-ar">أقراص مغلفة بالفيلم (إيتوريكوكسيب)</p>
+    </div>
+</div>
+
+    <div class="container">
+        <img src="Xibax.webp" alt="Xibax Image" class="product-image">
+
+        <!-- English Content -->
+        <div id="content-en">
+            <section class="content-section">
+                <h2 class="section-title">Composition</h2>
+                <p>Otipax is an ear drop solution containing two active substances:</p>
+                <ul>
+                    <li><strong>Phenazone (4%)</strong> - Offers analgesic and anti-inflammatory properties</li>
+                    <li><strong>Lidocaine hydrochloride (1%)</strong> - Serves as a local anesthetic</li>
+                </ul>
+                <p>This medication is intended for auricular use and is supplied in a 15 ml bottle.</p>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-title">Indications</h2>
+                <p>Otipax is used for the local symptomatic treatment of certain painful conditions of the middle ear with an intact tympanic membrane, including:</p>
+                <ul>
+                    <li>Congestive acute otitis media</li>
+                    <li>Phlyctenular viral otitis</li>
+                    <li>Barotrauma otitis</li>
+                </ul>
+                <div class="highlight">
+                    <p>It is suitable for adults and children above 6 months of age.</p>
                 </div>
-                <button class="lang-switch" id="langToggle">
-                    <span class="lang-text">عربي</span>
-                </button>
-            </div>
-        </div>
-    </header>
+            </section>
 
-    <main class="container" id="main">
-        <div class="loading">
-            <div class="loading-spinner"></div>
-        </div>
-    </main>
-
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <img src="Logo.png" alt="Logo" class="logo" id="Logo">
-                <div class="copyright">
-                    <span id="copyrightText">© 2025 All Rights Reserved by</span> 
-                    <span class="copyright-name" id="copyrightName">صيدلي. محمد كمال طليس (PH. Mohamed Kamal Telis)</span>
+            <section class="content-section">
+                <h2 class="section-title">Dosage and Administration</h2>
+                <p>The recommended dosage is 4 drops into the auditory meatus of the affected ear, administered 2 to 3 times daily.</p>
+                <p>Before application, warm the bottle between your hands to avoid the discomfort of instilling a cold solution.</p>
+                <div class="highlight">
+                    <p>Treatment duration should not exceed 10 days. If symptoms persist, consult your doctor.</p>
                 </div>
-            </div>
-        </div>
-    </footer>
+            </section>
 
-    <div class="back-to-top" id="backToTop">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="18 15 12 9 6 15"></polyline>
-        </svg>
+            <section class="content-section">
+                <h2 class="section-title">Contraindications</h2>
+                <p>Do not use Otipax if you have:</p>
+                <ul>
+                    <li>A known allergy to lidocaine, phenazone, or any other ingredients in the formulation</li>
+                    <li>A perforated tympanic membrane of infectious or traumatic origin</li>
+                </ul>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-title">Warnings and Precautions</h2>
+                <p>Ensure the tympanic membrane is intact before using Otipax, as contact with the middle ear can cause adverse effects. If there is a perforation in the eardrum, do not use this medication.</p>
+                <p>Pregnant or breastfeeding women should consult their healthcare provider before use.</p>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-title">Side Effects</h2>
+                <p>Side effects are rare but may include local reactions such as allergy, irritation, or redness of the auditory meatus.</p>
+                <div class="highlight">
+                    <p>If you experience any adverse effects, discontinue use and consult your doctor or pharmacist.</p>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-title">Storage</h2>
+                <ul>
+                    <li>Store Otipax below 30°C and keep it out of reach of children.</li>
+                    <li>Do not use the product after the expiry date indicated on the packaging.</li>
+                    <li>Once opened, the solution should not be used for more than 10 days.</li>
+                </ul>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-title">Packaging</h2>
+                <p>Otipax is available in a 15 ml bottle containing a clear, colorless, or slightly amber liquid with an alcohol odor. Each package includes one bottle equipped with a dropper.</p>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-title">Manufacturer</h2>
+                <p>Biocodex 7 Avenue Gallieni 94250 Gentilly, France</p>
+                <p>For more detailed information, please refer to the patient information leaflet or consult your healthcare provider.</p>
+            </section>
+        </div>
+
+        <!-- Arabic Content -->
+        <div id="content-ar" class="hidden">
+            <section class="content-section">
+                <h2 class="section-title">التركيب</h2>
+                <p>أوتيباكس هو محلول قطرة للأذن يحتوي على مادتين فعالتين:</p>
+                <ul>
+                    <li><strong>فينازون (4٪)</strong> - يقدم خصائص مسكنة ومضادة للالتهابات</li>
+                    <li><strong>هيدروكلوريد الليدوكائين (1٪)</strong> - يعمل كمخدر موضعي</li>
+                </ul>
+                <p>هذا الدواء مخصص للاستخدام الأذني ويُقدم في زجاجة سعة 15 مل.</p>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-title">دواعي الاستعمال</h2>
+                <p>يُستخدم أوتيباكس للعلاج الموضعي للأعراض في بعض حالات الألم في الأذن الوسطى مع وجود غشاء طبلي سليم، بما في ذلك:</p>
+                <ul>
+                    <li>التهاب الأذن الوسطى الحاد الاحتقاني</li>
+                    <li>التهاب الأذن الفيروسي الحويصلي</li>
+                    <li>التهاب الأذن الناتج عن تغيرات الضغط</li>
+                </ul>
+                <div class="highlight">
+                    <p>يُناسب هذا الدواء البالغين والأطفال فوق عمر 6 أشهر.</p>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-title">الجرعة وطريقة الاستخدام</h2>
+                <p>الجرعة الموصى بها هي 4 قطرات في قناة الأذن المصابة، تُستخدم 2 إلى 3 مرات يوميًا.</p>
+                <p>قبل التطبيق، يُفضل تدفئة الزجاجة بين يديك لتجنب الشعور بعدم الراحة الناتج عن استخدام محلول بارد.</p>
+                <div class="highlight">
+                    <p>يجب ألا تتجاوز مدة العلاج 10 أيام. إذا استمرت الأعراض، استشر طبيبك.</p>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-title">موانع الاستعمال</h2>
+                <p>لا تستخدم أوتيباكس إذا كان لديك:</p>
+                <ul>
+                    <li>حساسية معروفة تجاه الليدوكائين، الفينازون، أو أي من المكونات الأخرى في التركيبة</li>
+                    <li>ثقب في غشاء الطبلة ناتج عن عدوى أو إصابة</li>
+                </ul>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-title">التحذيرات والاحتياطات</h2>
+                <p>تأكد من سلامة غشاء الطبلة قبل استخدام أوتيباكس، حيث إن ملامسة الأذن الوسطى قد تسبب آثارًا سلبية. إذا كان هناك ثقب في طبلة الأذن، لا تستخدم هذا الدواء.</p>
+                <p>يجب على النساء الحوامل أو المرضعات استشارة مقدم الرعاية الصحية قبل الاستخدام.</p>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-title">الآثار الجانبية</h2>
+                <p>الآثار الجانبية نادرة ولكن قد تشمل تفاعلات موضعية مثل الحساسية، التهيج، أو احمرار قناة الأذن.</p>
+                <div class="highlight">
+                    <p>إذا شعرت بأي آثار سلبية، توقف عن الاستخدام واستشر طبيبك أو الصيدلي.</p>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-title">التخزين</h2>
+                <ul>
+                    <li>يُحفظ أوتيباكس في درجة حرارة أقل من 30 درجة مئوية وبعيدًا عن متناول الأطفال.</li>
+                    <li>لا تستخدم المنتج بعد تاريخ انتهاء الصلاحية المدون على العبوة.</li>
+                    <li>بعد الفتح، يجب عدم استخدام المحلول لأكثر من 10 أيام.</li>
+                </ul>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-title">التعبئة</h2>
+                <p>يتوفر أوتيباكس في زجاجة سعة 15 مل تحتوي على سائل شفاف، عديم اللون أو مائل قليلاً إلى اللون الكهرماني، وله رائحة كحولية.</p>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-title">الشركة المصنعة</h2>
+                <p>بيوكوديكس 7 شارع جاليني 94250 جينتيلي، فرنسا</p>
+                <p>لمزيد من المعلومات التفصيلية، يرجى الرجوع إلى نشرة معلومات المريض أو استشارة مقدم الرعاية الصحية الخاص بك.</p>
+            </section>
+        </div>
     </div>
 
+    <footer class="footer">
+        <p id="footer-en">All rights reserved © 2025 PH.Mohamed Kamal Telis</p>
+        <p id="footer-ar" class="hidden">جميع الحقوق محفوظة © 2025 صيدلي.محمد كمال طليس</p>
+        <div class="author-credit" id="author-en">Developed with care by PH.Mohamed Kamal Telis</div>
+        <div class="author-credit hidden" id="author-ar">تم التطوير بعناية بواسطة صيدلي.محمد كمال طليس</div>
+    </footer>
+
     <script>
-        // Simulating content fetching with our predefined data
-        const contentData = {
-            en: {
-                title: "XIBAX 90mg",
-                subtitle: "Film-Coated Tablets (etoricoxib)",
-                description: "XIBAX 90mg Film-Coated Tablets contain the active ingredient etoricoxib, a selective COX-2 inhibitor belonging to the non-steroidal anti-inflammatory drugs (NSAIDs) class. This medication is primarily used to alleviate pain and inflammation in individuals aged 16 and older with conditions such as osteoarthritis, rheumatoid arthritis, ankylosing spondylitis, and gout. Additionally, it is prescribed for short-term treatment of moderate pain following dental surgery in the same age group.",
-                sections: [
-                    {
-                        title: "Dosage and Administration",
-                        content: `
-                            <div class="dosage-item">Osteoarthritis: 30 mg once daily, which may be increased to a maximum of 60 mg once daily if necessary.</div>
-                            <div class="dosage-item">Rheumatoid Arthritis: 60 mg once daily, with the possibility of increasing to a maximum of 90 mg once daily if needed.</div>
-                            <div class="dosage-item">Ankylosing Spondylitis: 60 mg once daily, potentially increasing to a maximum of 90 mg once daily if required.</div>
-                            <div class="dosage-item">Acute Gout: 120 mg once daily, limited to a maximum of 8 days.</div>
-                            <div class="dosage-item">Postoperative Dental Surgery Pain: 90 mg once daily, limited to a maximum of 3 days.</div>
-                            <p>For patients with mild liver disease, the maximum recommended dose is 60 mg daily; for those with moderate liver disease, it is 30 mg daily. No dose adjustment is necessary for elderly patients. XIBAX can be taken with or without food, but taking it without food may result in a faster onset of action.</p>
-                        `
-                    },
-                    {
-                        title: "Contraindications",
-                        content: `
-                            <p>Do not take XIBAX if you:</p>
-                            <ul>
-                                <li>Are allergic to etoricoxib or any other ingredients in the tablet.</li>
-                                <li>Have a current stomach ulcer or gastrointestinal bleeding.</li>
-                                <li>Suffer from severe liver or kidney disease.</li>
-                                <li>Are pregnant, planning to become pregnant, or breastfeeding.</li>
-                                <li>Are under 16 years of age.</li>
-                                <li>Have inflammatory bowel disease.</li>
-                                <li>Have uncontrolled high blood pressure.</li>
-                                <li>Have been diagnosed with heart problems such as heart failure or angina, or have experienced heart attack, bypass surgery, peripheral arterial disease, or any kind of stroke.</li>
-                            </ul>
-                        `
-                    },
-                    {
-                        title: "Precautions",
-                        content: `
-                            <p>Before taking XIBAX, inform your doctor if you:</p>
-                            <ul>
-                                <li>Have a history of stomach bleeding or ulcers.</li>
-                                <li>Are dehydrated due to prolonged vomiting or diarrhea.</li>
-                                <li>Have swelling due to fluid retention.</li>
-                                <li>Have a history of heart failure, high blood pressure, liver or kidney disease.</li>
-                                <li>Are being treated for an infection, as XIBAX can mask fever.</li>
-                                <li>Have diabetes, high cholesterol, or are a smoker.</li>
-                                <li>Are attempting to become pregnant.</li>
-                                <li>Are over 65 years of age.</li>
-                            </ul>
-                        `
-                    },
-                    {
-                        title: "Possible Side Effects",
-                        content: `
-                            <p>Common side effects include:</p>
-                            <ul>
-                                <li>Stomach pain.</li>
-                                <li>Dry socket (inflammation and pain after tooth extraction).</li>
-                                <li>Swelling of the legs and/or feet due to fluid retention (edema).</li>
-                                <li>Dizziness, headache.</li>
-                                <li>Palpitations or irregular heartbeat.</li>
-                                <li>Increased blood pressure.</li>
-                                <li>Wheezing or shortness of breath.</li>
-                                <li>Constipation, gas, gastritis, heartburn, diarrhea, indigestion, nausea, vomiting, inflammation of the esophagus, mouth ulcers.</li>
-                                <li>Changes in liver-related blood tests.</li>
-                                <li>Bruising.</li>
-                                <li>Weakness and fatigue, flu-like symptoms.</li>
-                            </ul>
-                        `
-                    },
-                    {
-                        title: "Storage",
-                        content: `
-                            <ul>
-                                <li>Store XIBAX below 30°C and keep it out of the reach of children.</li>
-                                <li>Do not use the medicine after the expiry date stated on the carton.</li>
-                                <li>Dispose of any unused medicine properly; consult your pharmacist for guidance.</li>
-                            </ul>
-                        `
-                    },
-                    {
-                        title: "Packaging and Manufacturer",
-                        content: `
-                            <p>XIBAX 90mg tablets are white, apple-shaped, biconvex, film-coated tablets debossed with "C47" on one side and plain on the other. They are available in Alu-Alu blister packs containing 28 tablets. The medication is manufactured and marketed by Middle East Pharmaceutical Industries Co. Ltd. (Avalon Pharma), located in Riyadh, Saudi Arabia.</p>
-                            <div class="warning">
-                                <p><span class="highlighted">Important Notice:</span> Please consult your doctor or pharmacist for more detailed information and before starting any new medication.</p>
-                            </div>
-                        `
-                    }
-                ],
-                langText: "عربي",
-                copyrightText: "© 2025 All Rights Reserved by",
-                backToTop: "Back to Top"
-            },
-            ar: {
-                title: "زيباكس 90 مجم",
-                subtitle: "أقراص مغلفة بالفيلم (إيتوريكوكسيب)",
-                description: "زيباكس 90 مجم أقراص مغلفة بالفيلم تحتوي على المادة الفعالة إيتوريكوكسيب، وهو مثبط انتقائي لإنزيم COX-2 ينتمي إلى فئة مضادات الالتهاب غير الستيرويدية (NSAIDs). يُستخدم هذا الدواء بشكل أساسي لتخفيف الألم والالتهاب لدى الأفراد الذين تبلغ أعمارهم 16 عامًا فأكثر، وذلك في حالات مثل التهاب المفاصل العظمي (Osteoarthritis)، التهاب المفاصل الروماتويدي (Rheumatoid Arthritis)، التهاب الفقرات التصلبي (Ankylosing Spondylitis)، والنقرس (Gout). كما يُستخدم أيضًا لفترة قصيرة لعلاج الألم المتوسط بعد جراحة الأسنان في نفس الفئة العمرية.",
-                sections: [
-                    {
-                        title: "الجرعة وطريقة الاستخدام",
-                        content: `
-                            <div class="dosage-item">التهاب المفاصل العظمي: 30 مجم مرة واحدة يوميًا، ويمكن زيادتها إلى 60 مجم يوميًا عند الحاجة.</div>
-                            <div class="dosage-item">التهاب المفاصل الروماتويدي: 60 مجم مرة واحدة يوميًا، ويمكن زيادتها إلى 90 مجم يوميًا عند الضرورة.</div>
-                            <div class="dosage-item">التهاب الفقرات التصلبي: 60 مجم مرة واحدة يوميًا، ويمكن زيادتها إلى 90 مجم يوميًا عند الحاجة.</div>
-                            <div class="dosage-item">النقرس الحاد: 120 مجم مرة واحدة يوميًا، لمدة لا تتجاوز 8 أيام.</div>
-                            <div class="dosage-item">الألم بعد جراحة الأسنان: 90 مجم مرة واحدة يوميًا، لمدة لا تتجاوز 3 أيام.</div>
-                            <p>مرضى الكبد: في حالة مرض الكبد الخفيف، الحد الأقصى للجرعة هو 60 مجم يوميًا، وفي حالة مرض الكبد المتوسط، الحد الأقصى هو 30 مجم يوميًا. لا يلزم تعديل الجرعة لكبار السن. يمكن تناول زيباكس مع أو بدون طعام، ولكن تناوله على معدة فارغة قد يؤدي إلى بدء مفعوله بشكل أسرع.</p>
-                        `
-                    },
-                    {
-                        title: "موانع الاستخدام",
-                        content: `
-                            <p>يُمنع تناول زيباكس إذا كنت:</p>
-                            <ul>
-                                <li>تعاني من حساسية تجاه إيتوريكوكسيب أو أي من مكونات الدواء.</li>
-                                <li>لديك قرحة معدية نشطة أو نزيف بالجهاز الهضمي.</li>
-                                <li>تعاني من مرض كبدي أو كلوي شديد.</li>
-                                <li>حامل أو تخططين للحمل أو مرضعة.</li>
-                                <li>أقل من 16 عامًا.</li>
-                                <li>تعاني من التهاب الأمعاء.</li>
-                                <li>تعاني من ارتفاع ضغط الدم غير المسيطر عليه.</li>
-                                <li>لديك مشاكل في القلب مثل: فشل القلب، الذبحة الصدرية، النوبة القلبية، جراحة مجازة القلب، مرض الشرايين الطرفية، أو أي نوع من السكتات الدماغية.</li>
-                            </ul>
-                        `
-                    },
-                    {
-                        title: "الاحتياطات",
-                        content: `
-                            <p>أخبر طبيبك قبل استخدام زيباكس إذا كنت:</p>
-                            <ul>
-                                <li>لديك تاريخ سابق لقرحة أو نزيف في المعدة.</li>
-                                <li>تعاني من الجفاف بسبب القيء أو الإسهال المطول.</li>
-                                <li>لديك تورم بسبب احتباس السوائل.</li>
-                                <li>تعاني من فشل القلب، ارتفاع ضغط الدم، أمراض الكبد أو الكلى.</li>
-                                <li>تتلقى علاجًا لعدوى، حيث يمكن أن يخفي زيباكس الحمى.</li>
-                                <li>لديك سكري، كوليسترول مرتفع، أو مدخن.</li>
-                                <li>تحاولين الحمل.</li>
-                                <li>أكبر من 65 عامًا.</li>
-                            </ul>
-                        `
-                    },
-                    {
-                        title: "الآثار الجانبية المحتملة",
-                        content: `
-                            <p>الآثار الجانبية الشائعة تشمل:</p>
-                            <ul>
-                                <li>ألم المعدة.</li>
-                                <li>التهاب السنخ الجاف (ألم بعد خلع الأسنان).</li>
-                                <li>تورم في الساقين أو القدمين بسبب احتباس السوائل.</li>
-                                <li>دوخة، صداع.</li>
-                                <li>خفقان أو عدم انتظام ضربات القلب.</li>
-                                <li>ارتفاع ضغط الدم.</li>
-                                <li>ضيق التنفس أو الصفير.</li>
-                                <li>إمساك، غازات، التهاب المعدة، حرقة المعدة، إسهال، عسر هضم، غثيان، قيء، التهاب المريء، قرح الفم.</li>
-                                <li>تغيرات في اختبارات وظائف الكبد.</li>
-                                <li>كدمات.</li>
-                                <li>إرهاق، ضعف، أعراض شبيهة بالإنفلونزا.</li>
-                            </ul>
-                        `
-                    },
-                    {
-                        title: "التخزين",
-                        content: `
-                            <ul>
-                                <li>يُحفظ زيباكس في درجة حرارة أقل من 30 درجة مئوية.</li>
-                                <li>يُحفظ بعيدًا عن متناول الأطفال.</li>
-                                <li>لا تستخدم الدواء بعد انتهاء الصلاحية المدونة على العبوة.</li>
-                                <li>تخلص من أي دواء غير مستخدم بشكل صحيح، واستشر الصيدلي للحصول على الإرشادات.</li>
-                            </ul>
-                        `
-                    },
-                    {
-                        title: "التعبئة والتصنيع",
-                        content: `
-                            <p>زيباكس 90 مجم أقراص بيضاء، على شكل تفاحة، محدبة الوجهين، مغلفة بالفيلم، منقوشة برمز "C47" على أحد الجانبين، والآخر فارغ. متوفرة في عبوات شرائط (Alu-Alu) تحتوي على 28 قرصًا. يتم تصنيعها وتسويقها بواسطة شركة الشرق الأوسط للصناعات الدوائية المحدودة (أفالون فارما)، الرياض، المملكة العربية السعودية.</p>
-                            <div class="warning">
-                                <p><span class="highlighted">ملاحظة هامة:</span> يرجى استشارة الطبيب أو الصيدلي للحصول على مزيد من المعلومات قبل بدء استخدام أي دواء.</p>
-                            </div>
-                        `
-                    }
-                ],
-                langText: "English",
-                copyrightText: "© 2025 جميع الحقوق محفوظة
-                      }
+        document.addEventListener('DOMContentLoaded', function() {
+    const languageToggle = document.getElementById('languageToggle');
+    const contentEn = document.getElementById('content-en');
+    const contentAr = document.getElementById('content-ar');
+    const titleEn = document.getElementById('title-en');
+    const titleAr = document.getElementById('title-ar');
+    const subtitleEn = document.getElementById('subtitle-en');
+    const subtitleAr = document.getElementById('subtitle-ar');
+    const footerEn = document.getElementById('footer-en');
+    const footerAr = document.getElementById('footer-ar');
+    const authorEn = document.getElementById('author-en');
+    const authorAr = document.getElementById('author-ar');
+    const enLabel = document.querySelector('.en-label');
+    const arLabel = document.querySelector('.ar-label');
+
+    languageToggle.addEventListener('change', function() {
+        if (this.checked) {
+            // Switch to Arabic
+            document.body.classList.add('arabic');
+            contentEn.classList.add('hidden');
+            contentAr.classList.remove('hidden');
+            titleEn.classList.add('hidden');
+            titleAr.classList.remove('hidden');
+            subtitleEn.classList.add('hidden');
+            subtitleAr.classList.remove('hidden');
+            footerEn.classList.add('hidden');
+            footerAr.classList.remove('hidden');
+            authorEn.classList.add('hidden');
+            authorAr.classList.remove('hidden');
+            enLabel.classList.add('hidden');
+            arLabel.classList.remove('hidden');
+        } else {
+            // Switch to English
+            document.body.classList.remove('arabic');
+            contentEn.classList.remove('hidden');
+            contentAr.classList.add('hidden');
+            titleEn.classList.remove('hidden');
+            titleAr.classList.add('hidden');
+            subtitleEn.classList.remove('hidden');
+            subtitleAr.classList.add('hidden');
+            footerEn.classList.remove('hidden');
+            footerAr.classList.add('hidden');
+            authorEn.classList.remove('hidden');
+            authorAr.classList.add('hidden');
+            enLabel.classList.remove('hidden');
+            arLabel.classList.add('hidden');
+        }
+    });
+
+    // Check if user prefers Arabic based on browser language
+    const userLang = navigator.language || navigator.userLanguage;
+    if (userLang.includes('ar')) {
+        languageToggle.checked = true;
+        // Trigger the change event
+        const event = new Event('change');
+        languageToggle.dispatchEvent(event);
+    }
 });
     </script>
 </body>
