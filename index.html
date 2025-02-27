@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>XIBAX 90mg | Demo Page</title>
+
+  <!-- Google Fonts (English: Poppins, Arabic: Tajawal) -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Tajawal:wght@300;400;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    /* GLOBAL RESETS & BASIC STYLES */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth; /* Smooth scrolling for Back-to-Top */
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #fdfdfd;
+      color: #333;
+      line-height: 1.6;
+      padding: 0;
+      margin: 0;
+    }
+
+    /* RTL / LTR Handling */
+    /* We'll switch these in JavaScript by toggling html lang attribute */
+    html[lang="ar"] body {
+      direction: rtl;
+      text-align: right;
+      font-family: 'Tajawal', sans-serif;
+    }
+    html[lang="ar"] ul, html[lang="ar"] ol {
+      margin-right: 2rem;
+    }
+
+    /* HEADER */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #003f5c;
+      color: #fff;
+      padding: 1rem 2rem;
+    }
+
+    #logo {
+      height: 60px;
+      width: auto;
+    }
+
+    #langToggle {
+      background: #fff;
+      color: #003f5c;
+      border: none;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    #langToggle:hover {
+      background: #eee;
+    }
+
+    /* WELCOME VIDEO SECTION */
+    #videoContainer {
+      text-align: center;
+      margin: 2rem auto;
+      max-width: 800px;
+      padding: 0 1rem;
+    }
+    #videoContainer video {
+      width: 100%;
+      max-height: 450px;
+      border: 2px solid #ccc;
+      border-radius: 6px;
+    }
+
+    /* MAIN CONTENT */
+    #mainContent {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      background-color: #fff;
+      border-radius: 6px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+
+    #mainContent .inner {
+      padding: 2rem;
+    }
+
+    #productImage {
+      display: block;
+      max-width: 250px;
+      margin: 1rem auto;
+    }
+
+    /* HEADINGS & TEXT */
+    h1, h2, h3 {
+      color: #003f5c;
+      margin-bottom: 1rem;
+    }
+    h1 {
+      font-size: 1.8rem;
+      margin-top: 0;
+    }
+    h2 {
+      font-size: 1.4rem;
+      margin-top: 2rem;
+    }
+    h3 {
+      font-size: 1.2rem;
+      margin-top: 1.5rem;
+    }
+
+    p {
+      margin-bottom: 1rem;
+    }
+    ul, ol {
+      margin: 1rem 2rem;
+    }
+    li {
+      margin-bottom: 0.5rem;
+      line-height: 1.5;
+    }
+
+    /* "BACK TO TOP" BUTTON */
+    #backToTop {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      display: none;
+      background-color: #003f5c;
+      color: #fff;
+      border: none;
+      padding: 0.75rem 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: opacity 0.3s;
+      z-index: 999;
+    }
+    #backToTop:hover {
+      opacity: 0.8;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      background: #003f5c;
+      color: #fff;
+      padding: 1rem;
+      margin-top: 2rem;
+      position: relative;
+    }
+    footer p {
+      margin: 0;
+      font-size: 0.9rem;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 600px) {
+      #logo {
+        height: 40px;
+      }
+      #langToggle {
+        padding: 0.4rem 0.8rem;
+      }
+      h1 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER with Logo & Language Toggle -->
+  <header>
+    <!-- Replace 'logo.png' with your actual logo path -->
+    <img id="logo" src="logo.png" alt="MK Logo" />
+    <button id="langToggle">AR</button>
+  </header>
+
+  <!-- WELCOME VIDEO SECTION -->
+  <div id="videoContainer">
+    <!-- Replace 'welcome.mp4' with your actual video file path or use an embedded YouTube iframe -->
+    <video id="welcomeVideo" controls>
+      <source src="welcome.mp4" type="video/mp4" />
+      Your browser does not support HTML5 video.
+    </video>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div id="mainContent">
+    <div class="inner">
+      <!-- Product image (Replace 'xibax.png' with the real path) -->
+      <img id="productImage" src="xibax.png" alt="XIBAX 90mg" />
+
+      <!-- Dynamic content container -->
+      <div id="contentArea"></div>
+    </div>
+  </div>
+
+  <!-- BACK TO TOP BUTTON -->
+  <button id="backToTop">↑</button>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>All rights reserved &copy; صيدلي. محمد كمال طليس (PH. Mohamed Kamal Telis)</p>
+  </footer>
+
+  <!-- EMBEDDED JSON DATA (English & Arabic) -->
+  <script id="productData" type="application/json">
+  {
+    "en": "<h1>XIBAX 90mg Film-Coated Tablets</h1>\
+      <p>XIBAX 90mg Film-Coated Tablets contain the active ingredient etoricoxib, a selective COX-2 inhibitor belonging to the non-steroidal anti-inflammatory drugs (NSAIDs) class. This medication is primarily used to alleviate pain and inflammation in individuals aged 16 and older with conditions such as osteoarthritis, rheumatoid arthritis, ankylosing spondylitis, and gout. Additionally, it is prescribed for short-term treatment of moderate pain following dental surgery in the same age group.</p>\
+      <h2>Dosage and Administration</h2>\
+      <ul>\
+        <li><strong>Osteoarthritis:</strong> 30 mg once daily, which may be increased to a maximum of 60 mg once daily if necessary.</li>\
+        <li><strong>Rheumatoid Arthritis:</strong> 60 mg once daily, with the possibility of increasing to a maximum of 90 mg once daily if needed.</li>\
+        <li><strong>Ankylosing Spondylitis:</strong> 60 mg once daily, potentially increasing to a maximum of 90 mg once daily if required.</li>\
+        <li><strong>Acute Gout:</strong> 120 mg once daily, limited to a maximum of 8 days.</li>\
+        <li><strong>Postoperative Dental Surgery Pain:</strong> 90 mg once daily, limited to a maximum of 3 days.</li>\
+      </ul>\
+      <p>For patients with mild liver disease, the maximum recommended dose is 60 mg daily; for those with moderate liver disease, it is 30 mg daily. No dose adjustment is necessary for elderly patients. XIBAX can be taken with or without food, but taking it without food may result in a faster onset of action.</p>\
+      <h2>Contraindications</h2>\
+      <p>Do not take XIBAX if you:</p>\
+      <ul>\
+        <li>Are allergic to etoricoxib or any other ingredients in the tablet?</li>\
+        <li>Have a current stomach ulcer or gastrointestinal bleeding.</li>\
+        <li>Suffer from severe liver or kidney disease.</li>\
+        <li>Are pregnant, planning to become pregnant, or breastfeeding?</li>\
+        <li>Are under 16 years of age.</li>\
+        <li>Have inflammatory bowel disease.</li>\
+        <li>Have uncontrolled high blood pressure.</li>\
+        <li>Have been diagnosed with heart problems such as heart failure or angina, or have experienced heart attack, bypass surgery, peripheral arterial disease, or any kind of stroke.</li>\
+      </ul>\
+      <h2>Precautions</h2>\
+      <p>Before taking XIBAX, inform your doctor if you:</p>\
+      <ul>\
+        <li>Have a history of stomach bleeding or ulcers.</li>\
+        <li>Are dehydrated due to prolonged vomiting or diarrhea.</li>\
+        <li>Have swelling due to fluid retention.</li>\
+        <li>Have a history of heart failure, high blood pressure, liver or kidney disease.</li>\
+        <li>Are being treated for an infection, as XIBAX can mask fever.</li>\
+        <li>Have diabetes, high cholesterol, or are a smoker.</li>\
+        <li>Are attempting to become pregnant.</li>\
+        <li>Are over 65 years of age.</li>\
+      </ul>\
+      <h2>Possible Side Effects</h2>\
+      <p>Common side effects include:</p>\
+      <ul>\
+        <li>Stomach pain.</li>\
+        <li>Dry socket (inflammation and pain after tooth extraction).</li>\
+        <li>Swelling of the legs and/or feet due to fluid retention (edema).</li>\
+        <li>Dizziness, headache.</li>\
+        <li>Palpitations or irregular heartbeat.</li>\
+        <li>Increased blood pressure.</li>\
+        <li>Wheezing or shortness of breath.</li>\
+        <li>Constipation, gas, gastritis, heartburn, diarrhea, indigestion, nausea, vomiting, inflammation of the esophagus, and mouth ulcers.</li>\
+        <li>Changes in liver-related blood tests.</li>\
+        <li>Bruising.</li>\
+        <li>Weakness and fatigue, flu-like symptoms.</li>\
+      </ul>\
+      <h2>Storage</h2>\
+      <p>Store XIBAX below 30°C and keep it out of the reach of children. Do not use the medicine after the expiry date stated on the carton. Dispose of any unused medicine properly; consult your pharmacist for guidance.</p>\
+      <h2>Packaging and Manufacturer</h2>\
+      <p>XIBAX 90mg tablets are white, apple-shaped, biconvex, film-coated tablets debossed with 'C47' on one side and plain on the other. They are available in Alu-Alu blister packs containing 28 tablets. The medication is manufactured and marketed by Middle East Pharmaceutical Industries Co. Ltd. (Avalon Pharma), located in Riyadh, Saudi Arabia.</p>\
+      <p><em>Please consult your doctor or pharmacist for more detailed information before starting any new medication.</em></p>",
+
+    "ar": "<h1>زيباكس 90 مجم أقراص مغلفة بالفيلم</h1>\
+      <p>تحتوي زيباكس 90 مجم أقراص مغلفة بالفيلم على المادة الفعالة إيتوريكوكسيب، وهو مثبط انتقائي لإنزيم COX-2 ينتمي إلى فئة مضادات الالتهاب غير الستيرويدية (NSAIDs). يُستخدم هذا الدواء بشكل أساسي لتخفيف الألم والالتهاب لدى الأفراد الذين تبلغ أعمارهم 16 عامًا فأكثر، وذلك في حالات مثل:</p>\
+      <ul>\
+        <li>التهاب المفاصل العظمي (Osteoarthritis)</li>\
+        <li>التهاب المفاصل الروماتويدي (Rheumatoid Arthritis)</li>\
+        <li>التهاب الفقرات التصلبي (Ankylosing Spondylitis)</li>\
+        <li>النقرس (Gout)</li>\
+      </ul>\
+      <p>كما يُستخدم أيضًا لفترة قصيرة لعلاج الألم المتوسط بعد جراحة الأسنان في نفس الفئة العمرية.</p>\
+      <h2>الجرعة وطريقة الاستخدام</h2>\
+      <ul>\
+        <li><strong>التهاب المفاصل العظمي:</strong> 30 مجم مرة واحدة يوميًا، ويمكن زيادتها إلى 60 مجم يوميًا عند الحاجة.</li>\
+        <li><strong>التهاب المفاصل الروماتويدي:</strong> 60 مجم مرة واحدة يوميًا، ويمكن زيادتها إلى 90 مجم يوميًا عند الضرورة.</li>\
+        <li><strong>التهاب الفقرات التصلبي:</strong> 60 مجم مرة واحدة يوميًا، ويمكن زيادتها إلى 90 مجم يوميًا عند الحاجة.</li>\
+        <li><strong>النقرس الحاد:</strong> 120 مجم مرة واحدة يوميًا، لمدة لا تتجاوز 8 أيام.</li>\
+        <li><strong>الألم بعد جراحة الأسنان:</strong> 90 مجم مرة واحدة يوميًا، لمدة لا تتجاوز 3 أيام.</li>\
+      </ul>\
+      <p><strong>مرضى الكبد:</strong></p>\
+      <ul>\
+        <li>في حالة مرض الكبد الخفيف، الحد الأقصى للجرعة هو 60 مجم يوميًا.</li>\
+        <li>في حالة مرض الكبد المتوسط، الحد الأقصى هو 30 مجم يوميًا.</li>\
+        <li>لا يلزم تعديل الجرعة لكبار السن.</li>\
+      </ul>\
+      <p>يمكن تناول زيباكس مع أو بدون طعام، ولكن تناوله على معدة فارغة قد يؤدي إلى بدء مفعوله بشكل أسرع.</p>\
+      <h2>موانع الاستخدام</h2>\
+      <p>يُمنع تناول زيباكس إذا كنت:</p>\
+      <ul>\
+        <li>تعاني من حساسية تجاه إيتوريكوكسيب أو أي من مكونات الدواء.</li>\
+        <li>لديك قرحة معدية نشطة أو نزيف بالجهاز الهضمي.</li>\
+        <li>تعاني من مرض كبدي أو كلوي شديد.</li>\
+        <li>حامل أو تخططين للحمل أو مرضعة.</li>\
+        <li>أقل من 16 عامًا.</li>\
+        <li>تعاني من التهاب الأمعاء.</li>\
+        <li>تعاني من ارتفاع ضغط الدم غير المسيطر عليه.</li>\
+        <li>لديك مشاكل في القلب مثل: فشل القلب، الذبحة الصدرية، النوبة القلبية، جراحة مجازة القلب، مرض الشرايين الطرفية، أو أي نوع من السكتات الدماغية.</li>\
+      </ul>\
+      <h2>الاحتياطات</h2>\
+      <p>أخبر طبيبك قبل استخدام زيباكس إذا كنت:</p>\
+      <ul>\
+        <li>لديك تاريخ سابق لقرحة أو نزيف في المعدة.</li>\
+        <li>تعاني من الجفاف بسبب القيء أو الإسهال المطول.</li>\
+        <li>لديك تورم بسبب احتباس السوائل.</li>\
+        <li>تعاني من فشل القلب، ارتفاع ضغط الدم، أمراض الكبد أو الكلى.</li>\
+        <li>تتلقى علاجًا لعدوى، حيث يمكن أن يخفي زيباكس الحمى.</li>\
+        <li>لديك سكري، كوليسترول مرتفع، أو مدخن.</li>\
+        <li>تحاولين الحمل.</li>\
+        <li>أكبر من 65 عامًا.</li>\
+      </ul>\
+      <h2>الآثار الجانبية المحتملة</h2>\
+      <p><strong>شائعة:</strong></p>\
+      <ul>\
+        <li>ألم المعدة.</li>\
+        <li>التهاب السنخ الجاف (ألم بعد خلع الأسنان).</li>\
+        <li>تورم في الساقين أو القدمين بسبب احتباس السوائل.</li>\
+        <li>دوخة، صداع.</li>\
+        <li>خفقان أو عدم انتظام ضربات القلب.</li>\
+        <li>ارتفاع ضغط الدم.</li>\
+        <li>ضيق التنفس أو الصفير.</li>\
+        <li>إمساك، غازات، التهاب المعدة، حرقة المعدة، إسهال، عسر هضم، غثيان، قيء، التهاب المريء، قرح الفم.</li>\
+        <li>تغيرات في اختبارات وظائف الكبد.</li>\
+        <li>كدمات.</li>\
+        <li>إرهاق، ضعف، أعراض شبيهة بالإنفلونزا.</li>\
+      </ul>\
+      <h2>التخزين</h2>\
+      <p>يُحفظ زيباكس في درجة حرارة أقل من 30 درجة مئوية. يُحفظ بعيدًا عن متناول الأطفال. لا تستخدم الدواء بعد انتهاء الصلاحية المدونة على العبوة. تخلص من أي دواء غير مستخدم بشكل صحيح، واستشر الصيدلي للحصول على الإرشادات.</p>\
+      <h2>التعبئة والتصنيع</h2>\
+      <p>زيباكس 90 مجم أقراص بيضاء، على شكل تفاحة، محدبة الوجهين، مغلفة بالفيلم، منقوشة برمز 'C47' على أحد الجانبين، والأخرى فارغة. متوفرة في عبوات شرائط (Alu-Alu) تحتوي على 28 قرصًا. يتم تصنيعها وتسويقها بواسطة شركة الشرق الأوسط للصناعات الدوائية المحدودة (أفالون فارما)، الرياض، المملكة العربية السعودية.</p>\
+      <p><em>يرجى استشارة الطبيب أو الصيدلي للحصول على مزيد من المعلومات قبل بدء استخدام أي دواء.</em></p>"
+  }
+  </script>
+
+  <script>
+    // ------------------------------------------------------
+    // 1) FETCH THE EMBEDDED JSON
+    // ------------------------------------------------------
+    async function fetchProductData() {
+      // Simulate a fetch from the embedded <script> tag
+      const dataScript = document.getElementById('productData');
+      // Normally you'd do fetch('data.json'), but here we parse the script content:
+      const jsonData = JSON.parse(dataScript.textContent.trim());
+      return jsonData;
+    }
+
+    // ------------------------------------------------------
+    // 2) RENDER CONTENT BASED ON CURRENT LANGUAGE
+    // ------------------------------------------------------
+    let currentLang = 'en'; // default language
+
+    async function renderContent() {
+      const data = await fetchProductData();
+      const contentArea = document.getElementById('contentArea');
+
+      // Set the page direction & content
+      if (currentLang === 'ar') {
+        document.documentElement.lang = 'ar';
+        contentArea.innerHTML = data.ar;
+      } else {
+        document.documentElement.lang = 'en';
+        contentArea.innerHTML = data.en;
+      }
+    }
+
+    // ------------------------------------------------------
+    // 3) LANGUAGE TOGGLE LOGIC
+    // ------------------------------------------------------
+    document.addEventListener('DOMContentLoaded', () => {
+      const langToggleBtn = document.getElementById('langToggle');
+      langToggleBtn.addEventListener('click', () => {
+        currentLang = currentLang === 'en' ? 'ar' : 'en';
+        // Update the button text
+        langToggleBtn.textContent = currentLang === 'en' ? 'AR' : 'EN';
+        // Re-render the content
+        renderContent();
+      });
+
+      // Initial render
+      renderContent();
+    });
+
+    // ------------------------------------------------------
+    // 4) BACK TO TOP BUTTON
+    // ------------------------------------------------------
+    const backToTopBtn = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      // Show the button when scrolled down 300px
+      if (window.scrollY > 300) {
+        backToTopBtn.style.display = 'block';
+      } else {
+        backToTopBtn.style.display = 'none';
+      }
+    });
+
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+</body>
+  </html>
